@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Contacts extends Component {
   state = {
@@ -12,7 +13,6 @@ export class Contacts extends Component {
   };
 
   filteredContacts = data => {
-    console.log(data);
     return data.filter(contact =>
       contact.name
         .toLowerCase()
@@ -48,3 +48,14 @@ export class Contacts extends Component {
     );
   }
 }
+
+Contacts.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ).isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};

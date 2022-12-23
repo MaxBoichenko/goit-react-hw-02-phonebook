@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import { SubButton } from './Form.styled';
 
 export class Form extends Component {
   state = {
@@ -54,9 +57,13 @@ export class Form extends Component {
             onChange={this.handleInputChange}
             value={this.state.number}
           />
-          <button type="submit">Добавить контакт</button>
+          <SubButton type="submit">Добавить контакт</SubButton>
         </label>
       </form>
     );
   }
 }
+
+Form.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};
